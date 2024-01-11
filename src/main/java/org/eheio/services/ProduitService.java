@@ -2,10 +2,15 @@ package org.eheio.services;
 
 import org.eheio.Produit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProduitService {
     public static List<Produit> produits;
+
+    static {
+        produits = new ArrayList<>();
+    }
 
     public static void Create(long id, String nom, double prix, int quantite) throws Exception {
         Produit produit = new Produit(id, nom, prix, quantite);
