@@ -70,4 +70,14 @@ public class ProduitService {
         produit.setPrix(prix);
         produit.setQuantite(quantite);
     }
+
+    public static void Delete(long id) throws Exception {
+        for (Produit p : produits) {
+            if (p.getId() == id) {
+                produits.remove(p);
+            }
+        }
+
+        throw new Exception("Produit non trouvé avec l'ID : " + id);
+    }
 }
