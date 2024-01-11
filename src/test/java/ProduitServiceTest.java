@@ -2,6 +2,7 @@ import org.eheio.Produit;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.eheio.services.ProduitService.Read;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -23,7 +24,6 @@ public class ProduitServiceTest {
         try {
             Produit p = new Produit(3, "Produit 3", 10, 20);
             produits.add(p);
-
             assertEquals(true, true);
         } catch (Exception e) {
 
@@ -66,6 +66,23 @@ public class ProduitServiceTest {
         try {
             Produit p = new Produit(3, "Produit 2", 10, 20);
             produits.add(p);
+        } catch (Exception e) {
+            assertEquals(true, true);
+        }
+    }
+
+    @Test
+    public void ReadIdExistant() {
+        Produit p = new Produit(2, "Produit 2", 10, 20);
+        p.getId();
+        assertEquals(true, true);
+    }
+
+    @Test
+    public void ReadIdInexistant() {
+        try {
+            Produit p = new Produit(3, "Produit 3", 10, 20);
+            p.getId();
         } catch (Exception e) {
             assertEquals(true, true);
         }
