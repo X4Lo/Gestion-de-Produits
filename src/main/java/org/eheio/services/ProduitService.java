@@ -26,4 +26,13 @@ public class ProduitService {
 
         produits.add(produit);
     }
+    public static Produit Read(long id) throws Exception {
+        for (Produit p : produits) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+
+        throw new Exception("Produit non trouvé avec l'ID : " + id);
+    }
 }
