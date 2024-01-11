@@ -6,6 +6,10 @@ public class Produit {
     private double prix;
     private int quantite;
 
+    public Produit() {
+
+    }
+
     public Produit(long id, String nom, double prix, int quantite) {
         this.id = id;
         this.nom = nom;
