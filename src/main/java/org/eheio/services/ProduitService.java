@@ -63,11 +63,11 @@ public class ProduitService {
         }
 
 
-        if (produit.getPrix() <= 0) {
+        if (prix <= 0) {
             throw new Exception("Le prix doit etre positif!");
         }
 
-        if (produit.getQuantite() < 0) {
+        if (quantite < 0) {
             throw new Exception("La quantité doit etre positif!");
         }
 

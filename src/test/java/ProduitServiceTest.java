@@ -68,6 +68,32 @@ public class ProduitServiceTest {
         ProduitService.Delete(58);
     }
 
+
+    @Test
+    public void UpdateProduit() throws Exception {
+        ProduitService.Update(1, "Produit 1", 10, 30);
+        assertEquals(true, true);
+    }
+
+    @Test(expected = Exception.class)
+    public void UpdateIdNonExistant() throws Exception {
+        ProduitService.Update(3, "Produit 3", 10, 30);
+    }
+
+    @Test(expected = Exception.class)
+    public void UpdatePrixNegative() throws Exception {
+        ProduitService.Update(1, "Produit 1", -10, 30);
+    }
+    @Test(expected = Exception.class)
+    public void UpdateQuantiteNegative() throws Exception {
+        ProduitService.Update(1, "Produit 1", 10, -30);
+    }
+
+    @Test(expected = Exception.class)
+    public void UpdateNomExistant() throws Exception {
+        ProduitService.Update(1, "Produit 2", 10, -30);
+    }
+
     @After
     public void CleanUp() {
         ProduitService.produits = new ArrayList<>();
