@@ -58,6 +58,16 @@ public class ProduitServiceTest {
         ProduitService.Read(3);
     }
 
+    @Test(expected = Exception.class)
+    public void DeleteExistingProduit() throws Exception {
+        ProduitService.Delete(2);
+    }
+
+    @Test(expected = Exception.class)
+    public void DeleteNonExistingProduit() throws Exception {
+        ProduitService.Delete(58);
+    }
+
     @After
     public void CleanUp() {
         ProduitService.produits = new ArrayList<>();
