@@ -21,54 +21,35 @@ public class ProduitServiceTest {
 
     @Test
     public void AjoutProduit() {
-        try {
-            Produit p = new Produit(3, "Produit 3", 10, 20);
-            produits.add(p);
-            assertEquals(true, true);
-        } catch (Exception e) {
+        Produit p = new Produit(3, "Produit 3", 10, 20);
+        produits.add(p);
 
-        }
+        assertEquals(true, true);
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void AjoutQuantiteNegative() {
-        try {
-            Produit p = new Produit(3, "Produit 3", 10, -20);
-            produits.add(p);
-        } catch (Exception e) {
-            assertEquals(true, true);
-        }
+        Produit p = new Produit(3, "Produit 3", 10, -20);
+        produits.add(p);
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void AjoutPrixNegative() {
-        try {
-            Produit p = new Produit(3, "Produit 3", -10, 20);
-            produits.add(p);
-        } catch (Exception e) {
-            assertEquals(true, true);
-        }
+        Produit p = new Produit(3, "Produit 3", -10, 20);
+        produits.add(p);
     }
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void AjoutIdExistant() {
-        try {
-            Produit p = new Produit(2, "Produit 3", 10, 20);
-            produits.add(p);
-        } catch (Exception e) {
-            assertEquals(true, true);
-        }
+        Produit p = new Produit(2, "Produit 3", 10, 20);
+        produits.add(p);
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void AjoutNomExistant() {
-        try {
-            Produit p = new Produit(3, "Produit 2", 10, 20);
-            produits.add(p);
-        } catch (Exception e) {
-            assertEquals(true, true);
-        }
+        Produit p = new Produit(3, "Produit 2", 10, 20);
+        produits.add(p);
     }
 
     @Test
@@ -78,13 +59,9 @@ public class ProduitServiceTest {
         assertEquals(true, true);
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void ReadIdInexistant() {
-        try {
-            Produit p = new Produit(3, "Produit 3", 10, 20);
-            p.getId();
-        } catch (Exception e) {
-            assertEquals(true, true);
-        }
+        Produit p = new Produit(3, "Produit 3", 10, 20);
+        p.getId();
     }
 }
